@@ -1,0 +1,35 @@
+name: generate-posts
+on:
+  schedule:
+    # UTCで書く。JSTの 7:17 / 10:17 / 13:17 / 16:17 / 19:17 / 22:17 / 1:17 / 4:17 に相当
+    - cron: "17 22,1,4,7,10,13,16,19 * * *"
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+concurrency:
+  group: tomarigi
+  cancel-in-progress: false
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install pyyaml requests
+      - name: Generate posts
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          # TOMARIGI_MODEL: claude-sonnet-4-6   # 上位モデルにしたい時はコメントを外す
+        run: python scripts/generate_posts.py
+      - name: Commit
+        run: |
+          git config user.name "tomarigi-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add docs/posts.json
+          git diff --cached --quiet || git commit -m "chirp $(date -u +'%Y-%m-%dT%H:%M')"
+          git push
