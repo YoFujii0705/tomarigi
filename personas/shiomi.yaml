@@ -17,6 +17,6 @@ speech_samples:
 ongoing_ref: shiomi
 posting:
   windows: [[5, 9], [12, 14], [21, 23]]
-  posts_per_day: 4
+  posts_per_day: 8
   reply_propensity: 0.35
   like_propensity: 0.5
