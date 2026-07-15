@@ -20,6 +20,6 @@ persona_notes: |
 ongoing_ref: muguruma
 posting:
   windows: [[2, 5], [11, 13], [22, 24]]
-  posts_per_day: 1
+  posts_per_day: 3
   reply_propensity: 0.0
   like_propensity: 0.15
