@@ -20,6 +20,6 @@ persona_notes: |
 ongoing_ref: uzumaki
 posting:
   windows: [[0, 5], [15, 17], [23, 24]]
-  posts_per_day: 4
+  posts_per_day: 6
   reply_propensity: 0.2
   like_propensity: 0.3
