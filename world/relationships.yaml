@@ -1,0 +1,38 @@
+# 有向グラフ。from -> to。均等な仲良しにしないこと。
+# weight: リプライ/いいねの起きやすさの補正 (1.0が基準)
+edges:
+  - from: gonda
+    to: uzumaki
+    note: "ネタツイに毎回マジレスして丁寧に解説してしまう。悪意ゼロ"
+    reply_weight: 2.0
+    like_weight: 1.5
+  - from: harugasumi
+    to: uzumaki
+    note: "よく分からないが俳句のようだと思っている。長文リプを送るが半分流される"
+    reply_weight: 1.5
+    like_weight: 1.5
+  - from: harugasumi
+    to: togakushi
+    note: "「先生」と呼びかけて長文リプを送る。元同業への親近感"
+    reply_weight: 2.0
+    like_weight: 1.5
+  - from: shiomi
+    to: muguruma
+    note: "彼の呟きにだけ静かに反応する。深夜労働者同士の無言の連帯"
+    reply_weight: 0.5
+    like_weight: 3.0
+  - from: togakushi
+    to: muguruma
+    note: "SA飯の投稿に律儀に反応する(中世の街道と物流の人だから)"
+    reply_weight: 1.0
+    like_weight: 2.5
+  - from: uzumaki
+    to: shiomi
+    note: "水族館の話は素で好きらしく、ネタ抜きの短い反応をする"
+    reply_weight: 1.2
+    like_weight: 1.5
+  - from: muguruma
+    to: "*"
+    note: "誰にもリプライしない。いいねだけ、ごく稀に"
+    reply_weight: 0.0
+    like_weight: 1.0
