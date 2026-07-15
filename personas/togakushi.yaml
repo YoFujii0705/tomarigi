@@ -23,6 +23,6 @@ persona_notes: |
 ongoing_ref: togakushi
 posting:
   windows: [[7, 9], [10, 18], [23, 24]]
-  posts_per_day: 3
+  posts_per_day: 8
   reply_propensity: 0.3
   like_propensity: 0.4
