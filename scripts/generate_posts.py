@@ -53,7 +53,7 @@ def pick_active(personas, hour):
         if not in_window(hour, w):
             continue
         window_hours = sum(e - s for s, e in w)
-        runs_in_window = max(1, window_hours // 3)  # 3時間おき起動の想定
+        runs_in_window = max(1, window_hours // 1)  # 1時間おき起動の想定
         prob = min(1.0, p["posting"]["posts_per_day"] / runs_in_window * 0.6)
         if random.random() < prob:
             active.append(p)
