@@ -2,7 +2,7 @@ name: generate-posts
 on:
   schedule:
     # UTCで書く。JSTの 7:17 / 10:17 / 13:17 / 16:17 / 19:17 / 22:17 / 1:17 / 4:17 に相当
-    - cron: "17 22,1,4,7,10,13,16,19 * * *"
+    - cron: "17 * * * *"
   workflow_dispatch: {}
 
 permissions:
