@@ -18,6 +18,6 @@ speech_samples:
 ongoing_ref: gonda
 posting:
   windows: [[6, 8], [12, 13], [19, 22]]
-  posts_per_day: 3
+  posts_per_day: 5
   reply_propensity: 0.5
   like_propensity: 0.7
