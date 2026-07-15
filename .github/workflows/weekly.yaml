@@ -1,0 +1,33 @@
+name: weekly-life-update
+on:
+  schedule:
+    - cron: "0 21 * * 6"   # JST 日曜 6:00
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+concurrency:
+  group: tomarigi
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install pyyaml requests
+      - name: Advance world state
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: python scripts/weekly_update.py
+      - name: Commit
+        run: |
+          git config user.name "tomarigi-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add world/state.yaml
+          git diff --cached --quiet || git commit -m "life goes on"
+          git push
